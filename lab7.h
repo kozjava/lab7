@@ -12,6 +12,7 @@ private:
 	T* set;
 	int power;
 	int size;
+	
 public:
 	Set();
 	Set(T *pp, int s);
@@ -19,14 +20,14 @@ public:
 	Set(int p);
 	~Set();
 	/*=======================*/
-	Set<T>& operator += (const char e);
-	bool check(char e) const;
+	Set<T>& operator += (const int e);
+	bool check(int e) const;
 	int Set::operator[](const int n);
 	bool Set::operator <= (const Set<T> &p3);
 	template<class U>
 	friend Set<U> operator + (const Set<U> &p1, const Set<U> &p2);
 	template<class Q>
-	friend ostream & operator << (ostream & l, const Set<Q> & r);
+	friend ostream & operator << (ostream & l,Set<Q> & r);
 	void Show();
 	T* Getset()
 	{
@@ -120,7 +121,7 @@ Set<T>::~Set()
 }
 
 template<class T>
-Set<T> & Set<T>::operator+=(const char e)
+Set<T> & Set<T>::operator+=(const int e)
 {
 	// TODO: вставьте здесь оператор return
 	if (size + 1 > maxpower || check(e)) return *this;
@@ -129,7 +130,7 @@ size++;
 }
 
 template<class T>
-bool Set<T>::check(char e) const
+bool Set<T>::check(int e) const
 {
 	for (int i = 0; i<size; i++) //символ в массиве
 		if (set[i].getx() &&set[i].gety()&&set[i].getr() == e) return true;
@@ -177,6 +178,6 @@ inline void Set<T>::Show()
 {
 	for (int i = 0; i < size; i++)
 	{
-		cout << set[i].getx() && set[i].gety() && set[i].getr() <<"  " << endl;
+		cout << set[i].getx() << " " << set[i].gety() << " " << set[i].getr() << endl;
 	}
 };
