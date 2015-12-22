@@ -6,6 +6,7 @@ using namespace std;
 
 void main()
 {
+	//Компилится с интами
 	setlocale(LC_CTYPE, "Rus");
 	Circle *name = new Circle[1];
 	name[0].setx(1);
@@ -22,7 +23,7 @@ void main()
 	int k;
 	cout << "Enter: " << endl;
 	cin >> k;
-	if (obj.check(k) == obj1.check(k))
+	if (obj.check(k) != obj1.check(k))
 	{
 		cout << "Correct entered number..." << endl;
 	}
